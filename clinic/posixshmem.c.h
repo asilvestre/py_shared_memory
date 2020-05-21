@@ -18,7 +18,7 @@ _posixshmem_shm_open_impl(PyObject *module, PyObject *path, int flags,
                           int mode);
 
 static PyObject *
-_posixshmem_shm_open(PyObject *module, PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames)
+_posixshmem_shm_open(PyObject *module, PyObject **args, Py_ssize_t nargs, PyObject *kwnames)
 {
     PyObject *return_value = NULL;
     static const char * const _keywords[] = {"path", "flags", "mode", NULL};
@@ -28,7 +28,7 @@ _posixshmem_shm_open(PyObject *module, PyObject *const *args, Py_ssize_t nargs, 
     int mode = 511;
     int _return_value;
 
-    if (!_PyArg_ParseStackAndKeywords(args, nargs, kwnames, &_parser,
+    if (!_PyArg_ParseStack(args, nargs, kwnames, &_parser,
         &path, &flags, &mode)) {
         goto exit;
     }
@@ -63,14 +63,14 @@ static PyObject *
 _posixshmem_shm_unlink_impl(PyObject *module, PyObject *path);
 
 static PyObject *
-_posixshmem_shm_unlink(PyObject *module, PyObject *const *args, Py_ssize_t nargs, PyObject *kwnames)
+_posixshmem_shm_unlink(PyObject *module, PyObject **args, Py_ssize_t nargs, PyObject *kwnames)
 {
     PyObject *return_value = NULL;
     static const char * const _keywords[] = {"path", NULL};
     static _PyArg_Parser _parser = {"U:shm_unlink", _keywords, 0};
     PyObject *path;
 
-    if (!_PyArg_ParseStackAndKeywords(args, nargs, kwnames, &_parser,
+    if (!_PyArg_ParseStack(args, nargs, kwnames, &_parser,
         &path)) {
         goto exit;
     }
